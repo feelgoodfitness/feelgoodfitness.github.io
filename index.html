@@ -22,6 +22,10 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet" type="text/css">
 
+    <!-- Map API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZtQE8TCNpYZljH12upSOxigMdgb2Y-3M&callback=initMap"
+  type="text/javascript"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -221,54 +225,6 @@
         </div>
     </aside>
 
-    <!-- Contact Form -->
-    <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-    <form id="contact" name="contact" method="post">
-      <fieldset>
-        <p>
-          <label for="name" id="name">Name<span class="required">*</span></label>
-          <input type="text" name="name" id="name" size="30" value="" required/>
-        </p>
-        <p>
-          <label for="email" id="email">Email<span class="required">*</span></label>
-          <input type="text" name="email" id="email" size="30" value="" required/>
-        </p>
-        <p>
-          <label for="phone" id="phone">Phone</label>
-          <input type="text" name="phone" id="phone" size="30" value="" />
-        </p>
-        <p>
-          <label for="Message" id="message">Message<span class="required">*</span></label>
-          <textarea name="message" id="message" required></textarea>
-        </p>
-        
-        <input id="submit" type="submit" name="submit" value="Send" />
-      </fieldset>
-    </form>
-  </div>
-</div>
-
-    <div id="success">
-      <span>
-        <p>Your message was sent succssfully! I will be in touch as soon as I can.</p>
-      </span>
-    </div>
-
-    <div id="error">
-      <span>
-        <p>Something went wrong, try refreshing and submitting the form again.</p>
-      </span>
-    </div>
-
-    <!-- Map -->
-    <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -303,6 +259,10 @@
         </div>
         <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
     </footer>
+
+    <!-- Map -->
+
+      <iframe src="https://snazzymaps.com/embed/244" width="100%" height="50%" style="border:none;"/>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -362,26 +322,6 @@
             }
         }
     });
-    // Disable Google Maps scrolling
-    // See http://stackoverflow.com/a/25904582/1607849
-    // Disable scroll zooming and bind back the click event
-    var onMapMouseleaveHandler = function(event) {
-        var that = $(this);
-        that.on('click', onMapClickHandler);
-        that.off('mouseleave', onMapMouseleaveHandler);
-        that.find('iframe').css("pointer-events", "none");
-    }
-    var onMapClickHandler = function(event) {
-            var that = $(this);
-            // Disable the click handler until the user leaves the map area
-            that.off('click', onMapClickHandler);
-            // Enable scrolling zoom
-            that.find('iframe').css("pointer-events", "auto");
-            // Handle the mouse leave event
-            that.on('mouseleave', onMapMouseleaveHandler);
-        }
-        // Enable map zooming with mouse scroll when the user clicks the map
-    $('.map').on('click', onMapClickHandler);
     </script>
 
 </body>
